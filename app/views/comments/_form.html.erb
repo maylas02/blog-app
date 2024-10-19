@@ -1,0 +1,22 @@
+<%= form_with model: [ article, article.comments.build ] do |form| %>
+  <p class="text-xl font-bold">
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p class="text-xl font-bold">
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p class="text-xl font-bold">
+  <%= form.label :status %><br>
+  <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
+</p>
+
+  <p class="font-xl text-green-500 font-bold">
+    <%= form.submit %>
+  </p>
+
+<div class="underline">
+  <%= link_to 'Lists of Articles', articles_path %>
+</div>
+<% end %>

@@ -1,0 +1,23 @@
+<div>
+  <h1 class="text-xl">Articles</h1>
+
+<% if Article.public_count < 2 %>
+  <div>Our blog has <%= Article.public_count%> article and counting</div>
+  <% else %>
+  <div>Our blog has <%= Article.public_count %> articles and counting!</div>
+<% end %>
+
+
+<ul class="grid grid-cols-4 gap-4 p-3">
+  <% @articles.each do |article| %>
+    <% unless article.archived? %>
+      <li class="grid grid-cols-4 border border-black p-3">
+        <%= link_to article.title, article %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+<div class="underline">
+<%= link_to "New Article", new_article_path %>
+</div>
+</div>

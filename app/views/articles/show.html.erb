@@ -1,0 +1,39 @@
+<div>
+
+<div>
+
+  <div class="flex items-center text-center gap-4">
+<h1 class="text-xl font-bold">Title:</h1>
+<h1><%= @article.title %></h1>
+  </div>
+
+<div class="flex gap-4">
+<h1 class="text-xl font-bold">Body:</h1>
+<p><%= @article.body %></p>
+</div>
+
+
+</div>
+
+<div>
+<ul>
+  <li class="underline text-green-500 font-bold"><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li class="underline text-red-700 font-bold"><%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+</div>
+
+
+<div>
+<h2 class="font-bold text-xl">Comments:</h2>
+<%= render @article.comments %>
+<h2 class="text-xl font-bold">Add a comment here:</h2>
+<%= render "comments/form", article: @article %>
+</div>
+
+
+</div>
+
+
